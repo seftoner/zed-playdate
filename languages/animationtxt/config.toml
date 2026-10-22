@@ -1,0 +1,4 @@
+name = "animation.txt"
+grammar = "animationtxt"
+path_suffixes = ["animation.txt"]
+line_comments = ["# "]

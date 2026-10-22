@@ -1,12 +1,12 @@
-# Playdate Debugger for Zed
+# Playdate Tools for Zed
 
-Adds a `Playdate` debug adapter: debug Lua line by line in the Playdate
-Simulator, with breakpoints, stepping, the stack, variables and evaluate. Game
-console output goes to the debug console.
-
-For `pdxinfo` and `*.animation.txt` highlighting, install
-[notpeter/playdate-zed-extension][notpeter] (the **Playdate** extension in
-Zed) alongside this one.
+- **`Playdate` debug adapter.** Debug Lua line by line in the Playdate
+  Simulator: breakpoints, stepping, stack, variables and evaluate. Game console
+  output goes to the debug console.
+- **Highlighting** for `pdxinfo` and `animation.txt` (launcher card and icon
+  animations). Any key parses. Keys the SDK documents are keywords, unknown
+  keys are properties, and values are typed: `buildNumber` is a number,
+  `bundleID` and paths are special strings.
 
 The Simulator is itself a Debug Adapter Protocol server on
 `127.0.0.1:55934`, so Zed connects over TCP. For C code, debug the Simulator
@@ -63,7 +63,17 @@ Add these to `.zed/debug.json` in your game's repository:
   executable.
 - **`tcp_connection`** in a scenario sets another host or port.
 
-[notpeter]: https://github.com/notpeter/playdate-zed-extension
+## Grammars
+
+The tree-sitter grammars are in `tree-sitter/`. After changing a
+`grammar.js`, regenerate its parser:
+
+```sh
+cd tree-sitter/pdxinfo && npx tree-sitter-cli@0.25.10 generate
+```
+
+Then commit and push. Point `rev` in `extension.toml` at that commit: Zed
+fetches grammars from the repository, not from your checkout.
 
 ## Licence
 
