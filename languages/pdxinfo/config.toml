@@ -1,4 +1,0 @@
-name = "pdxinfo"
-grammar = "pdxinfo"
-path_suffixes = ["pdxinfo"]
-line_comments = ["# "]

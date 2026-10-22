@@ -1,21 +1,10 @@
-id = "playdate-tools"
-name = "Playdate Tools"
+id = "playdate-debugger"
+name = "Playdate Debugger"
 version = "0.1.0"
 schema_version = 1
 authors = ["Roman Silent"]
-description = "Debug Lua in the Playdate Simulator; highlight pdxinfo and animation.txt."
+description = "Debug Lua in the Playdate Simulator over its Debug Adapter Protocol service."
 repository = "https://github.com/seftoner/zed-playdate"
 
 [debug_adapters.Playdate]
 schema_path = "debug_adapter_schemas/Playdate.json"
-
-# The grammars live in this repository under tree-sitter/.
-[grammars.pdxinfo]
-repository = "https://github.com/seftoner/zed-playdate"
-rev = "7739e631e7e569d3e7252263f58aed132d3f234a"
-path = "tree-sitter/pdxinfo"
-
-[grammars.animationtxt]
-repository = "https://github.com/seftoner/zed-playdate"
-rev = "7739e631e7e569d3e7252263f58aed132d3f234a"
-path = "tree-sitter/animationtxt"
