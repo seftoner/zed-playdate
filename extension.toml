@@ -3,7 +3,7 @@ name = "Playdate Debugger"
 version = "0.1.0"
 schema_version = 1
 authors = ["Roman Silent"]
-description = "Debug Lua in the Playdate Simulator over its Debug Adapter Protocol service."
+description = "Debug Lua and C in the Playdate Simulator."
 repository = "https://github.com/seftoner/zed-playdate"
 
 [debug_adapters.Playdate]

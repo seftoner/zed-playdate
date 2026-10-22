@@ -5,7 +5,13 @@
       "type": "string",
       "enum": ["launch", "attach"],
       "default": "launch",
-      "description": "launch: start the Simulator from the SDK and run gamePath in it. attach: debug the game an open Simulator already runs."
+      "description": "launch: start the Simulator and run gamePath in it. attach: debug the game an open Simulator already runs."
+    },
+    "language": {
+      "type": "string",
+      "enum": ["lua", "c"],
+      "default": "lua",
+      "description": "lua: the Simulator's own debug service. c: LLDB's lldb-dap (xcrun lldb-dap on macOS, lldb-dap on PATH elsewhere)."
     },
     "gamePath": {
       "type": "string",
@@ -13,11 +19,15 @@
     },
     "sourcePath": {
       "type": "string",
-      "description": "Directory the .pdx was compiled from. Defaults to <worktree>/Source. When pdc compiled a copy, point this at the original; otherwise breakpoints are accepted but never hit."
+      "description": "Lua only. Directory the .pdx was compiled from. Defaults to <worktree>/Source. When pdc compiled a copy, point this at the original; otherwise breakpoints are accepted but never hit."
     },
     "sdkPath": {
       "type": "string",
-      "description": "Playdate SDK root for launch. Defaults to PLAYDATE_SDK_PATH from the shell environment."
+      "description": "Playdate SDK root. Defaults to PLAYDATE_SDK_PATH from the shell environment."
+    },
+    "simulatorPath": {
+      "type": "string",
+      "description": "Simulator executable to use instead of the SDK's."
     }
   },
   "required": ["request"]
