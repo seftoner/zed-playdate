@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "request": {
+      "type": "string",
+      "enum": ["launch", "attach"],
+      "default": "launch",
+      "description": "launch: start the Simulator from the SDK and run gamePath in it. attach: debug the game an open Simulator already runs."
+    },
+    "gamePath": {
+      "type": "string",
+      "description": "The .pdx to run; required for launch."
+    },
+    "sourcePath": {
+      "type": "string",
+      "description": "Directory the .pdx was compiled from. Defaults to <worktree>/Source. When pdc compiled a copy, point this at the original; otherwise breakpoints are accepted but never hit."
+    },
+    "sdkPath": {
+      "type": "string",
+      "description": "Playdate SDK root for launch. Defaults to PLAYDATE_SDK_PATH from the shell environment."
+    }
+  },
+  "required": ["request"]
+}
